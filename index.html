@@ -1,48 +1,40 @@
 <!DOCTYPE html>
-<html lang="PT-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicação para Estacionamentos</title>
-
-</head>
-<body>
-    <h1>Parking EBAC</h1>
-
-    <h2 id="saldo">Saldo disponível: R$0,00.</h2>
-
-    <input type="number" id="valorDeposito" placeholder="Valor a depositar">
-    <button onclick="caixaEletronico.depositar()">Depositar</button>
-    
-    <h2>Escolha o Plano Desejado.</h2>
-        <table>
-            <thead>
-                <tr>
-                    <h3>Valores e Tempo</h3>
-                </tr>
-            </thead>
-             <tbody>
-                <tr>
-                    <td>R$ 1,00 = </td>
-                    <td>30 minutos</td>
-                </tr> 
-                <tr>
-                    <td>R$ 1,75 = </td>
-                    <td>60 minutos</td>
-                </tr>
-                <tr>
-                    <td>R$ 3,00 = </td>
-                    <td> 120 minutos (tempo máximo permitido)</td>
-                </tr>
-            </tbody>
-        </table>
-        <h3>ATENÇÃO!</h3>
-        <p>Tempo de permanência máximo: 120 minutos. (2 horas.)</p>
-
-
-    <input type="number" id="valorSaque" placeholder="Valor a sacar">
-    <button onclick="caixaEletronico.sacar()">Escolher plano</button>
-
+    <title>Parquímetro</title>
     <script src="script.js"></script>
+</head>
+    <body>
+        <h1>Parquímetro</h1>
+
+        <h3>Saldo: R$ 0,00.</h3>
+        <p>Insira o crédito que deseja adicionar.</p>
+        <input type="number" id="adicionar" min="1,00" placeholder="Mínimo 1,00.">
+        <p><button>Adicionar</button></p>
+
+        <button>
+            <h2>Plano Básico</h2>
+            <h3>R$1,00</h3>
+            <h3>30 minutos</h3>
+        </button>
+
+        <button>
+            <h2>Plano Médio</h2>
+            <h3>R$1,75</h3>
+            <h3>60 minutos</h3>
+        </button>
+
+        <button>
+            <h2>Plano Grande</h2>
+            <h3>R$3,00</h3>
+            <h3>120 minutos</h3>
+        </button>
+        
+        <p>Escolha o plano desejado.</p>
+        <input type="number" id="valor" min="1,00" placeholder="Insira o valor do plano.">
+        <p><button>Escolher plano</button></p>
+
 </body>
 </html>
