@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação para Estacionamentos</title>
+
+</head>
+<body>
+    <h1>Parking EBAC</h1>
+
+    <h2 id="saldo">Saldo disponível: R$0,00.</h2>
+
+    <input type="number" id="valorDeposito" placeholder="Valor a depositar">
+    <button onclick="caixaEletronico.depositar()">Depositar</button>
+    
+    <h2>Escolha o Plano Desejado.</h2>
+        <table>
+            <thead>
+                <tr>
+                    <h3>Valores e Tempo</h3>
+                </tr>
+            </thead>
+             <tbody>
+                <tr>
+                    <td>R$ 1,00 = </td>
+                    <td>30 minutos</td>
+                </tr> 
+                <tr>
+                    <td>R$ 1,75 = </td>
+                    <td>60 minutos</td>
+                </tr>
+                <tr>
+                    <td>R$ 3,00 = </td>
+                    <td> 120 minutos (tempo máximo permitido)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>ATENÇÃO!</h3>
+        <p>Tempo de permanência máximo: 120 minutos. (2 horas.)</p>
+
+
+    <input type="number" id="valorSaque" placeholder="Valor a sacar">
+    <button onclick="caixaEletronico.sacar()">Escolher plano</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
