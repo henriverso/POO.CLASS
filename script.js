@@ -16,19 +16,103 @@ class Parquimetro{
     };
 
     mostrarSaldo(){
-        document.getElementById("saldo").textContent = `Saldo: R$ ${saldo},00.`
+        document.getElementById("Saldo").textContent =
+            "Saldo: R$ " + this.saldo.toFixed(2);
     }
-    
-    iniciarEvento(){
-        ["bascico","medio","maior"].forEach(id => {
-            document.getElementById(id)
-            .addEventListener("click", () => this.planoSelecionado(id))
-        });
 
-        document.getElementById("adicionar")
-            .addEventListener("click", () => this.adicionar())
+    iniciarEvento(){    
+    ["bascico","medio","maior"].forEach(id => {
+        document.getElementById(id)
+        .addEventListener("click", () => this.planoSelecionado(id))
+    });
+
+    document.getElementById("adicionar")
+        .addEventListener("click", () => this.adicionar()) 
+        
+    document.getElementById("escolherPlano")
+        .addEventListener("click", () => "escolherPlano")
     };
         
 
+    depositar(){
+        const valor = parseFloat(document.getElementById("saldo").value);
+         if (isNaN(valor) || valor < 0.50){
+            alert ("Valor mínimo é R$1,00");
+            return;
+        } else {
+            this.saldo += valor;
+            this.mostrarSaldo();
+            document.getElementById("saldo").value = ""
+        }
+    }
 
+    selecionarPlano(planoId){
+        this.planoEscolhido = planoId
+        const plano = this.planoId[planoId]
+
+        document.getElementById("valor").value = 
+            plano.valor.toFixed(2);
+
+        ["basico","medio","maior"].forEach(id=> {
+            document.getElementById(id).classList.remove("selecionado");
+        });
+        document.getElementById(planoId).classList.add("selecionado");
+    }
+
+    valorValido(raw){
+        const numero = parseFloat(raw); 
+        const valorPode = [1.00 , 1.75 , 3.00]
+        return valorPode.includes(numero) ? numero : null
+    }
+
+    escolherPlano(){
+        const raw = document.getElementById("valor").value;
+        const valorDigitado = this.valorValido(raw);
+
+        if(!valorDigitado){
+            alert("Valor inválido! Deposite apenas R$1.00 , R$1.75 e R$3.00");
+            return;
+        }
+
+        if(this.saldo < valorDigitado){
+
+            alert("Saldo Insuficiente!");
+        }
+
+        const planoId = Object.keys(this.planos).find(
+            id => this.planos[id].valor === valorDigitado
+        );
+
+        this.saldo -= valorDigitado
+        this.mostrarSaldo();
+
+        this.tempoRestante = this.planos[planoId].minutos*60;
+        this.iniciarContagem
+    }
+    iniciarContagem(){
+        if(this.intervalo) clearInterval(this.intervalo);
+
+        this.intervalo = setInterval(() => {
+            if(this.tempoRestante <= 0){
+                clearInterval(this.intervalo);
+                document.getElementById("card1").innerHTML = 
+                <p>"Tempo esgotado!"</p>;
+                return;
+            }
+            this.tempoRestante--;
+            this.exibirTempo;
+        }, 1000);
+
+        this.exibirTempo();
+    }
+    
+    exibirTempo(){
+        const min = String(Math.floor(this.tempoRestante / 60)).padStart(2, "0");
+        const seg = String(this.tempoRestante % 60).padStart(2, "0");
+
+        document.getElementById("card1").innerHTML =
+            `<h3>Tempo</h3><p>${min}:${seg}</p>`;
+    }
 };
+
+const parquimetro = new Parquimetro();

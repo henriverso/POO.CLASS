@@ -7,34 +7,40 @@
     <script src="script.js"></script>
 </head>
     <body>
-        <h1>Parquímetro</h1>
+        <div id="card1" class="card1"></div>
 
-        <h3>Saldo: R$ 0,00.</h3>
-        <p>Insira o crédito que deseja adicionar.</p>
-        <input type="number" id="saldo" min="1,00" placeholder="Mínimo 1,00.">
-        <p><button class="adicionar" id="adicionar">Adicionar</button></p>
+        </div>
+        <div class="card"></div>
+            <h1>Parquímetro</h1>
 
-        <button class="basico" id="basico">
-            <h2>Plano Básico</h2>
-            <h3>R$1,00</h3>
-            <h3>30 minutos</h3>
-        </button>
+            <h3>Saldo: R$ 0,00.</h3>
+            <p>Insira o crédito que deseja adicionar.</p>
+            <input type="number" id="saldo" min="1,00" placeholder="Mínimo 1,00.">
+            <p><button class="adicionar" id="adicionar">Adicionar</button></p> 
 
-        <button class="medio" id="medio">
-            <h2>Plano Médio</h2>
-            <h3>R$1,75</h3>
-            <h3>60 minutos</h3>
-        </button>
+         <div id="botoes" class="botoes">
 
-        <button class="maior" id="maior">
-            <h2>Plano Maior</h2>
-            <h3>R$3,00</h3>
-            <h3>120 minutos</h3>
-        </button>
-        
+            <button class="basico" id="basico">
+               <h2>Plano Básico</h2>
+               <h3>R$1,00</h3>
+               <h3>30 minutos</h3>
+            </button>
+
+            <button class="medio" id="medio">
+               <h2>Plano Médio</h2>
+               <h3>R$1,75</h3>
+                <h3>60 minutos</h3>
+            </button>
+
+         <button class="maior" id="maior">
+                <h2>Plano Maior</h2>
+             <h3>R$3,00</h3>
+                <h3>120 minutos</h3>
+            </button>
+        </div>
         <p>Escolha o plano desejado.</p>
         <input type="number" id="valor" min="1,00" placeholder="Insira o valor do plano.">
-        <p><button class="escolherPlano">Escolher plano</button></p>
-
+        <p><button class="escolherPlano" id="escolherPlano">Escolher plano</button></p>
+        </div>
 </body>
 </html>
