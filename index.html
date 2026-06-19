@@ -13,13 +13,15 @@
         <div class="card"></div>
             <h1>Parquímetro</h1>
 
-            <h3 id="Saldo">Saldo: R$ 0,00.</h3>
+<!--inserir o saldo-->
+            <h3 id="saldo">Saldo: R$ 0,00.</h3>
             <p>Insira o crédito que deseja adicionar.</p>
-            <input type="number" id="saldo" min="1.00" placeholder="Mínimo 1,00.">
-            <p><button class="adicionar" id="adicionar">Adicionar</button></p> 
+            <input type="number" id="iptSaldo" min="1.00" placeholder="Mínimo 1,00.">
+            <p><button class="adicionar" id="adicionarSaldoBtn">Adicionar</button></p> 
 
          <div id="botoes" class="botoes">
 
+<!-- Planos -->
             <button class="basico" id="basico">
                <h2>Plano Básico</h2>
                <h3>R$1,00</h3>
@@ -38,9 +40,11 @@
                 <h3>120 minutos</h3>
             </button>
         </div>
+
+<!--Escolha do plano-->
         <p>Escolha o plano desejado.</p>
         <input type="number" id="valor" min="1,00" placeholder="Insira o valor do plano.">
-        <p><button class="escolherPlano" id="escolherPlano">Escolher plano</button></p>
+        <p><button class="calcular">Escolher plano</button></p>
         </div>
 </body>
 </html>
