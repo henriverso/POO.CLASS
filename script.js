@@ -4,7 +4,7 @@ class Parquimetro{
         this.saldo = 0;
         this.planoEscolhido = null;
         this.intervalo = null;
-        this.tempoRestante = null;
+        this.tempoRestante = 0;
 
         this.planos = {
             basico:  { valor: 1.00,  minutos: 30  },
@@ -27,7 +27,7 @@ class Parquimetro{
     });
 
     document.getElementById("saldo")
-       .addEventListener("click", () => this.adicionar()) 
+       .addEventListener("click", () => this.escolherPlano()) 
         
     document.getElementById("escolherPlano")
         .addEventListener("click", () => "escolherPlano")
