@@ -21,9 +21,9 @@ class Parquimetro{
     }
 
     iniciarEvento(){    
-    ["bascico","medio","maior"].forEach(id => {
+    ["basico","medio","maior"].forEach(id => {
         document.getElementById(id)
-        .addEventListener("click", () => this.planoSelecionado(id))
+        .addEventListener("click", () => this.selecionarPlano(id))
     });
 
     document.getElementById("saldo")
@@ -48,7 +48,7 @@ class Parquimetro{
 
     selecionarPlano(planoId){
         this.planoEscolhido = planoId
-        const plano = this.planoId[planoId]
+        const plano = this.planos[planoId];
 
         document.getElementById("valor").value = 
             plano.valor.toFixed(2);
@@ -75,8 +75,8 @@ class Parquimetro{
         }
 
         if(this.saldo < valorDigitado){
-
             alert("Saldo Insuficiente!");
+            return
         }
 
         const planoId = Object.keys(this.planos).find(
@@ -87,7 +87,7 @@ class Parquimetro{
         this.mostrarSaldo();
 
         this.tempoRestante = this.planos[planoId].minutos*60;
-        this.iniciarContagem
+        this.iniciarContagem();
     }
     iniciarContagem(){
         if(this.intervalo) clearInterval(this.intervalo);
