@@ -26,8 +26,8 @@ class Parquimetro{
         .addEventListener("click", () => this.planoSelecionado(id))
     });
 
-    document.getElementById("adicionar")
-        .addEventListener("click", () => this.adicionar()) 
+    document.getElementById("saldo")
+       .addEventListener("click", () => this.adicionar()) 
         
     document.getElementById("escolherPlano")
         .addEventListener("click", () => "escolherPlano")
@@ -96,7 +96,7 @@ class Parquimetro{
             if(this.tempoRestante <= 0){
                 clearInterval(this.intervalo);
                 document.getElementById("card1").innerHTML = 
-                <p>"Tempo esgotado!"</p>;
+                alert ("Tempo esgotado!");
                 return;
             }
             this.tempoRestante--;
