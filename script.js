@@ -9,7 +9,7 @@ class Parquimetro{
         this.planos = {
             basico:  { valor: 1.00,  minutos: 30  },
             medio: { valor: 1.75,  minutos: 60  },
-            grande:   { valor: 3.00,  minutos: 120 }
+            maior:   { valor: 3.00,  minutos: 120 }
         };
 
         this.iniciarEvento();
@@ -20,11 +20,15 @@ class Parquimetro{
     }
     
     iniciarEvento(){
-        ["bascico","medio","grande"].forEach(id => {
+        ["bascico","medio","maior"].forEach(id => {
             document.getElementById(id)
             .addEventListener("click", () => this.planoSelecionado(id))
-        })
-    }
+        });
+
+        document.getElementById("adicionar")
+            .addEventListener("click", () => this.adicionar())
+    };
+        
 
 
 };
