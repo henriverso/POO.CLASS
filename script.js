@@ -51,5 +51,5 @@ function adicionarSaldo() {
     const input = document.getElementById('iptSaldo');
     const valor = Number(input.value);
     parquimetro.depositarValor(valor);
-    input.value = ''; // limpa o campo após adicionar
+    input.value = '';
 }
