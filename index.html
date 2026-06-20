@@ -21,19 +21,19 @@
 <!-- Planos -->
         <div id="btnPlano" class="btnPlano">
 
-            <button>
+            <button onclick="parquimetro.escolherPlano('basico')">
                <h3>Plano Básico</h3>
                <h4>R$1,00</h4>
                <h4>30 minutos</h4>
             </button>
 
-            <button>
+            <button onclick="parquimetro.escolherPlano('medio')">
                <h3>Plano Médio</h3>
                <h4>R$1,75</h4>
                 <h4>60 minutos</h4>
             </button>
 
-         <button>
+         <button onclick="parquimetro.escolherPlano('cheio')">
                 <h3>Plano Cheio</h3>
                 <h4>R$3,00</h4>
                 <h4>120 minutos</h4>
@@ -46,9 +46,10 @@
 
         <p>Escolha o plano desejado.</p>
         <input type="number" id="iptPlano" min="1,00" placeholder="Insira o valor do plano.">
-        <p><button class="calcular" id="escolherPlanoBtn">Escolher plano</button></p>
 
         </div>
+
+        <div id="tempoRestante">Tempo restante: 0 min</div>
            <script src="script.js"></script> 
 </body>
 </html>

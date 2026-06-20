@@ -20,24 +20,44 @@ class Parquimetro{
         this.saldo += valor;
         this.atualizarDisplaySaldo();
     }
-
     }
 
-    validarValor(){
-
+    validarValor(plano){
+        return this.saldo >= this.planos[plano].valor;
     }
 
-    escolherPlano(){
-
+    escolherPlano(plano){
+        if (!this.planos[plano]) {
+            alert('Plano inválido!');
+            return;
     }
-
+        if (this.validarValor(plano)) {
+        this.saldo -= this.planos[plano].valor;
+        this.tempoRestante = this.planos[plano].tempo;
+        this.atualizarDisplaySaldo();
+        this.exibirTempo();
+    } else {
+        alert('Saldo insuficiente para este plano!');
+    }
+      this.iniciarCronometro();
+    }
 
     iniciarCronometro(){
+        if (this.tempoRestante > 0) {
+            this.tempoCronometro = setInterval(() => {
+                this.tempoRestante--;
+                this.exibirTempo();
+                if (this.tempoRestante <= 0) {
+                    clearInterval(this.tempoCronometro)
+                    alert('Seu tempo esgotou!')
+                }
+            }, 60000);
+        }
 
     }
 
     exibirTempo(){
-
+        document.getElementById('tempoRestante').innerHTML = `Tempo restante: ${this.tempoRestante} min`;
     }
 
     atualizarDisplaySaldo() {
@@ -53,3 +73,4 @@ function adicionarSaldo() {
     parquimetro.depositarValor(valor);
     input.value = '';
 }
+
