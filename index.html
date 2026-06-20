@@ -4,47 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parquímetro</title>
-    <script src="script.js"></script>
 </head>
     <body>
-        <div id="card1" class="card1"></div>
-
-        </div>
-        <div class="card"></div>
             <h1>Parquímetro</h1>
 
 <!--inserir o saldo-->
+        <div id="adicionarSaldo" class="adicionarSaldo">
+
             <h3 id="saldo">Saldo: R$ 0,00.</h3>
             <p>Insira o crédito que deseja adicionar.</p>
-            <input type="number" id="iptSaldo" min="1.00" placeholder="Mínimo 1,00.">
-            <p><button class="adicionar" id="adicionarSaldoBtn">Adicionar</button></p> 
-
-         <div id="botoes" class="botoes">
+            <input type="number" id="iptSaldo" min="1.00" placeholder="Mínimo R$ 1,00.">
+            <p><button class="adicionar" id="adicionarSaldoBtn" onclick="adicionarSaldo()">Adicionar</button> </p>
+        
+        </div>
 
 <!-- Planos -->
-            <button class="basico" id="basico">
-               <h2>Plano Básico</h2>
-               <h3>R$1,00</h3>
-               <h3>30 minutos</h3>
+        <div id="btnPlano" class="btnPlano">
+
+            <button>
+               <h3>Plano Básico</h3>
+               <h4>R$1,00</h4>
+               <h4>30 minutos</h4>
             </button>
 
-            <button class="medio" id="medio">
-               <h2>Plano Médio</h2>
-               <h3>R$1,75</h3>
-                <h3>60 minutos</h3>
+            <button>
+               <h3>Plano Médio</h3>
+               <h4>R$1,75</h4>
+                <h4>60 minutos</h4>
             </button>
 
-         <button class="maior" id="maior">
-                <h2>Plano Maior</h2>
-             <h3>R$3,00</h3>
-                <h3>120 minutos</h3>
+         <button>
+                <h3>Plano Cheio</h3>
+                <h4>R$3,00</h4>
+                <h4>120 minutos</h4>
             </button>
+
         </div>
 
 <!--Escolha do plano-->
+        <div id="selecionarPlano" class="selecionarPlano">
+
         <p>Escolha o plano desejado.</p>
-        <input type="number" id="valor" min="1,00" placeholder="Insira o valor do plano.">
-        <p><button class="calcular">Escolher plano</button></p>
+        <input type="number" id="iptPlano" min="1,00" placeholder="Insira o valor do plano.">
+        <p><button class="calcular" id="escolherPlanoBtn">Escolher plano</button></p>
+
         </div>
+           <script src="script.js"></script> 
 </body>
 </html>
